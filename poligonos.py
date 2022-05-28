@@ -6,7 +6,7 @@ from pygame.locals import *
 
 pygame.init()
 ventana = pygame.display.set_mode((800, 500))
-pygame.display.set_caption("Cumbi- Líneas")
+pygame.display.set_caption("Cumbi- Polígonos")
 
 
 color = pygame.Color(70, 80, 150)
