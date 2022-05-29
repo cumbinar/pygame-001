@@ -13,11 +13,12 @@ color = pygame.Color(70, 80, 150)
 colorDos = pygame.Color(255, 165, 0)
 colorTres = pygame.Color(255, 0, 68)
 colorCuatro = pygame.Color(0, 0, 0)
+colorCinco = pygame.Color(240, 240, 240)
 #pygame.draw.line(ventana, color, (100,100),(600,400), 5) #método dibujar línea, ventana,color coordenadas
 
 
 while True:
-    ventana.fill(colorDos)  # pinta la ventana con el color definido
+    ventana.fill(colorCinco)  # pinta la ventana con el color definido
     # método dibujar línea, ventana,color coordenadas
     dibujar = 7
     xi = 300
