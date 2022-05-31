@@ -1,3 +1,5 @@
+#animar uuna imagen png con un ciclo iterativo
+
 import sys
 import pygame
 # Inicializamos pygame
@@ -12,7 +14,7 @@ width, height = 800, 600
 speed = [5, 3]
 gris = 230, 230, 230
 # Crea un objeto imagen y obtengo su rectángulo
-cuadrado = pygame.image.load("cuadro.png")
+cuadrado = pygame.image.load("imagenes/cuadro.png")
 cuadradorect = cuadrado.get_rect()
 # Comenzamos el bucle del juego
 run = True
