@@ -9,19 +9,22 @@ pygame.init()
 ventana = pygame.display.set_mode((800, 500))
 pygame.display.set_caption("Cumbi- Líneas aleatorias")
 
+color_fuente = 0, 0, 0
 
-color = pygame.Color(70, 80, 150)
-colorDos = pygame.Color(255, 165, 0)
-colorTres = pygame.Color(255, 0, 68)
-colorCuatro = pygame.Color(0, 0, 0)
-colorCinco = pygame.Color(240, 240, 240)
-#pygame.draw.line(ventana, color, (100,100),(600,400), 5) #método dibujar línea, ventana,color coordenadas
+
+def dibujar_texto(screen, texto, pos):
+    fuente = pygame.font.SysFont('Barber Street_PersonalUseOnly', 25)
+    text = fuente.render(texto, 1, color_fuente)
+    screen.blit(text, pos)
+    
+
+gris = (230, 230, 230)
 
 ciclo = True
 while ciclo:
-    ventana.fill(colorCinco)  # pinta la ventana con el color definido
-    # método dibujar línea, ventana,color coordenadas
-    #dibujar = 7
+    ventana.fill(gris)  # pinta la ventana con el color definido
+    dibujar_texto(ventana, "Líneas aleatorias variando longitud y color", [250, 40])
+   
     xi = randint(100, 700)
     yi = randint(100, 400)
     xf = randint(100, 700)
@@ -33,10 +36,10 @@ while ciclo:
     b = randint(0, 255)
   
     pygame.draw.line(ventana, (r, g, b), (xi, yi), (xf, yf), 3)
-    pygame.time.delay(200)
+    pygame.time.delay(300)
     
 
-    for evento in pygame.event.get():  # ciclo para dibujar la ventana
+    for evento in pygame.event.get():  
         if evento.type == QUIT:  # si el evento es click en la X de salir
             ciclo = False
             pygame.quit()
