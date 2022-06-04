@@ -40,7 +40,7 @@ while ciclo:
     
 
     for evento in pygame.event.get():  
-        if evento.type == QUIT:  # si el evento es click en la X de salir
+        if evento.type == pygame.QUIT:  # si el evento es click en la X de salir
             ciclo = False
             pygame.quit()
             sys.exit()
