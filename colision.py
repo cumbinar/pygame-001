@@ -53,8 +53,11 @@ while run:
     cuadro2= pygame.draw.rect(screen, (naranja), (cuadrado2_pos[0], cuadrado2_pos[1], cuadrado_medida[0], cuadrado_medida[1]))
     cuadro1 = pygame.draw.rect(screen, (rojo),(cuadrado_pos[0], cuadrado_pos[1],cuadrado_medida[0], cuadrado_medida[1]))
     if cuadro1.colliderect(cuadro2): #detecta colision entre los dos cuadrados
+        pygame.mixer.music.load('imagenes/clap.wav')
+        pygame.mixer.music.play()
         cuadrado2_pos[0] = randint(100, 700)
         cuadrado2_pos[1] = randint(100,400)
+        
 
     
     pygame.display.update()
