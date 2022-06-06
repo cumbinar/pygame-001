@@ -43,7 +43,7 @@ projected_points = [
 
 
 def connect_points(i, j, points):
-    pygame.draw.line(screen, WHITE, (points[i][0], points[i][1]), (points[j][0], points[j][1]))
+    pygame.draw.line(screen, WHITE, (points[i][0], points[i][1]), (points[j][0], points[j][1]),2)
 
 
 clock = pygame.time.Clock()
@@ -95,7 +95,7 @@ while True:
         y = int(projected2d[1][0] * scale) + circle_pos[1]
 
         projected_points[i] = [x, y]
-        pygame.draw.circle(screen, BLUE, (x, y), 8)
+        pygame.draw.circle(screen, BLUE, (x, y), 10)
         i += 1
 
     for p in range(4):
