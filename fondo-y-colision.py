@@ -38,16 +38,17 @@ def dibujar_texto(screen, texto, pos):
     screen.blit(text, pos)
 
 
-
+aux = 1
 run = True
 while run:
-
+    tiempo = pygame.time.get_ticks()/1000 #Se captura el tiempo
+    texto_tiempo = ("Tiempo: " + str(tiempo)) #se convierte el tiempo a string
+        
     for event in pygame.event.get():
         #Si el evento es salir de la ventana, terminamos
         if event.type == pygame.QUIT:
             run = False
             sys.exit()
-    
 
         if event.type == pygame.KEYDOWN:
             if event.key == K_LEFT:
@@ -69,7 +70,7 @@ while run:
     
     reloj.tick(fps)  # llama al reloj y pasa los cuadros por minuto
 # Salgo de pygame
-    dibujar_texto(screen, "Mueva el cuadrado ROJO con las teclas direccionales", [220, 10])
+    dibujar_texto(screen, "Persiga al cuadrado NARANJA con las teclas direccionales", [220, 10])
     cuadro2 = pygame.draw.rect(screen, (naranja), (cuadrado2_pos[0], cuadrado2_pos[1], cuadrado_medida[0], cuadrado_medida[1]))
     cuadro1 = pygame.draw.rect(
         screen, (rojo), (cuadrado_pos[0], cuadrado_pos[1], cuadrado_rojo_medida[0], cuadrado_rojo_medida[1]))
@@ -86,8 +87,10 @@ while run:
 
     if cuadrado_rojo_medida[0] == 200:
         dibujar_texto(screen, "Nuevo Juego ", [100, 100])
+        dibujar_texto(screen, texto_tiempo, [100, 120])
         pygame.mixer.music.load('imagenes/kick.WAV')
         pygame.mixer.music.play(3)
+       
         pygame.display.update()
         time.sleep(8)
         cuadrado_rojo_medida[0] = 50
