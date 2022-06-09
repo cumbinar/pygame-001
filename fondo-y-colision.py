@@ -70,9 +70,6 @@ while run:
     reloj.tick(fps)  # llama al reloj y pasa los cuadros por minuto
 # Salgo de pygame
     dibujar_texto(screen, "Mueva el cuadrado ROJO con las teclas direccionales", [220, 10])
-
-
-
     cuadro2 = pygame.draw.rect(screen, (naranja), (cuadrado2_pos[0], cuadrado2_pos[1], cuadrado_medida[0], cuadrado_medida[1]))
     cuadro1 = pygame.draw.rect(
         screen, (rojo), (cuadrado_pos[0], cuadrado_pos[1], cuadrado_rojo_medida[0], cuadrado_rojo_medida[1]))
