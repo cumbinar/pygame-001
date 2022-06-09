@@ -42,7 +42,7 @@ aux = 1
 run = True
 while run:
     tiempo = pygame.time.get_ticks()/1000 #Se captura el tiempo
-    texto_tiempo = ("Tiempo: " + str(tiempo)) #se convierte el tiempo a string
+    texto_tiempo = ("Tiempo: " + str(int(tiempo))) #se convierte el tiempo a string
         
     for event in pygame.event.get():
         #Si el evento es salir de la ventana, terminamos
