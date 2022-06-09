@@ -82,30 +82,19 @@ while run:
     if cuadro1.colliderect(cuadro2):  # detecta colision entre los dos cuadrados
         cuadrado_rojo_medida[0] += 5
         cuadrado_rojo_medida[1] += 5
-        print(cuadrado_rojo_medida[0])
         pygame.mixer.music.load('imagenes/clap.wav')
         pygame.mixer.music.play()
         cuadrado2_pos[0] = randint(100, 700)
         cuadrado2_pos[1] = randint(100, 400)
 
-    if cuadrado_rojo_medida[0] == 80:
-        dibujar_texto(screen, "Mueva el ", [220, 100])
-        pygame.mixer.music.load('imagenes/clap.wav')
-        pygame.mixer.music.play(5)
+    if cuadrado_rojo_medida[0] == 200:
+        dibujar_texto(screen, "Nuevo Juego ", [100, 100])
+        pygame.mixer.music.load('imagenes/kick.WAV')
+        pygame.mixer.music.play(3)
         pygame.display.update()
-        time.sleep(5)
+        time.sleep(8)
         cuadrado_rojo_medida[0] = 50
-        cuadrado_rojo_medida[1] = 50
-        
-
-
-                
-   
-
-
-
-       
-   
-       
+        cuadrado_rojo_medida[1] = 50   
+      
     pygame.display.update()
 pygame.quit()
