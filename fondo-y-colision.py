@@ -3,6 +3,7 @@ import pygame
 import sys
 from pygame.locals import *
 from random import randint
+import time
 
 pygame.init()
 # Muestro una ventana de 800x500
@@ -32,9 +33,11 @@ x = 0  # variable para la coordenada X
 
 
 def dibujar_texto(screen, texto, pos):
-    fuente = pygame.font.SysFont('Barber Street_PersonalUseOnly', 20)
+    fuente = pygame.font.SysFont('arial', 16)
     text = fuente.render(texto, 1, color_fuente)
     screen.blit(text, pos)
+
+
 
 run = True
 while run:
@@ -44,6 +47,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
             sys.exit()
+    
 
         if event.type == pygame.KEYDOWN:
             if event.key == K_LEFT:
@@ -53,7 +57,7 @@ while run:
             if event.key == pygame.K_UP:
                 cuadrado_pos[1] -= paso
             if event.key == pygame.K_DOWN:
-               cuadrado_pos[1] += paso
+               cuadrado_pos[1] += paso        
 
     # devuelve el resto de dividir x / ancho del fondo
     x_relativa = x % fondo.get_rect().width
@@ -65,14 +69,16 @@ while run:
     
     reloj.tick(fps)  # llama al reloj y pasa los cuadros por minuto
 # Salgo de pygame
-    dibujar_texto(screen, "Mueva el cuadrado ROJO con las teclas direccionales", [220, 25])
+    dibujar_texto(screen, "Mueva el cuadrado ROJO con las teclas direccionales", [220, 10])
 
-        
-        
+
 
     cuadro2 = pygame.draw.rect(screen, (naranja), (cuadrado2_pos[0], cuadrado2_pos[1], cuadrado_medida[0], cuadrado_medida[1]))
     cuadro1 = pygame.draw.rect(
         screen, (rojo), (cuadrado_pos[0], cuadrado_pos[1], cuadrado_rojo_medida[0], cuadrado_rojo_medida[1]))
+
+   
+
     if cuadro1.colliderect(cuadro2):  # detecta colision entre los dos cuadrados
         cuadrado_rojo_medida[0] += 5
         cuadrado_rojo_medida[1] += 5
@@ -81,11 +87,23 @@ while run:
         pygame.mixer.music.play()
         cuadrado2_pos[0] = randint(100, 700)
         cuadrado2_pos[1] = randint(100, 400)
+
+    if cuadrado_rojo_medida[0] == 80:
+        dibujar_texto(screen, "Mueva el ", [220, 100])
+        pygame.mixer.music.load('imagenes/clap.wav')
+        pygame.mixer.music.play(5)
+        pygame.display.update()
+        time.sleep(5)
+        cuadrado_rojo_medida[0] = 50
+        cuadrado_rojo_medida[1] = 50
+        
+
+
+                
    
-        if (cuadrado_rojo_medida[0] or cuadrado_rojo_medida[1]) == 200:
-            cuadrado_rojo_medida[0] = 50
-            cuadrado_rojo_medida[1] = 50
-       
+
+
+
        
    
        
