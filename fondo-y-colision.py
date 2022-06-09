@@ -19,7 +19,7 @@ naranja = 255, 155, 0
 cuadrado_pos = [400, 400]
 cuadrado2_pos = [100, 100]
 cuadrado_medida = [70, 70]
-cuadrado_rojo_medida = [40, 40]
+cuadrado_rojo_medida = [50, 50]
 
 color_fuente = (6, 47, 253)
 paso = 50
@@ -66,11 +66,9 @@ while run:
     reloj.tick(fps)  # llama al reloj y pasa los cuadros por minuto
 # Salgo de pygame
     dibujar_texto(screen, "Mueva el cuadrado ROJO con las teclas direccionales", [220, 25])
-    if (cuadrado_rojo_medida[0] or cuadrado_rojo_medida[1]) == 200:
-        dibujar_texto(screen, "Fin del Juego", [330, 150])
-        cuadrado_rojo_medida[0] = 50
-        cuadrado_rojo_medida[1] = 50
-    
+
+        
+        
 
     cuadro2 = pygame.draw.rect(screen, (naranja), (cuadrado2_pos[0], cuadrado2_pos[1], cuadrado_medida[0], cuadrado_medida[1]))
     cuadro1 = pygame.draw.rect(
@@ -79,12 +77,17 @@ while run:
         cuadrado_rojo_medida[0] += 5
         cuadrado_rojo_medida[1] += 5
         print(cuadrado_rojo_medida[0])
-       
         pygame.mixer.music.load('imagenes/clap.wav')
         pygame.mixer.music.play()
-   
         cuadrado2_pos[0] = randint(100, 700)
         cuadrado2_pos[1] = randint(100, 400)
    
+        if (cuadrado_rojo_medida[0] or cuadrado_rojo_medida[1]) == 200:
+            cuadrado_rojo_medida[0] = 50
+            cuadrado_rojo_medida[1] = 50
+       
+       
+   
+       
     pygame.display.update()
 pygame.quit()
